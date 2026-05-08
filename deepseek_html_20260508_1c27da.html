@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix74 — Artisan Multi-Services Éco-responsable en Haute-Savoie | Intervention Rapide</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --vert-fonce: #1a3a2a;      /* Forêt profonde */
+            --vert-medium: #2d5a3f;     /* Feuillage */
+            --vert-clair: #4a7c59;      /* Mousse */
+            --vert-lumiere: #7db17a;    /* Lierre lumineux */
+            --bois: #c49a6c;            /* Bois naturel */
+            --bois-clair: #d4b896;
+            --beige: #f5efe0;           /* Fond naturel */
+            --blanc: #ffffff;
+            --gris-bois: #5c4a3a;       /* Écorce */
+            --dore: #c49a3c;            /* Ambre / sève */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--vert-fonce);
+            line-height: 1.6;
+            background: var(--beige);
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ========== HERO FORÊT ========== */
+        .hero {
+            position: relative;
+            background: 
+                linear-gradient(0deg, rgba(26, 58, 42, 0.88) 0%, rgba(26, 58, 42, 0.65) 100%),
+                url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2074&auto=format&fit=crop') center/cover no-repeat;
+            /* Photo de forêt brumeuse par Unsplash */
+            color: white;
+            padding: 4rem 0 6rem;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 58, 42, 0.55);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .logo i {
+            color: var(--vert-lumiere);
+            font-size: 2rem;
+        }
+        .logo span {
+            color: var(--vert-lumiere);
+        }
+        .top-bar .cta-btn {
+            background: var(--bois);
+            color: var(--vert-fonce);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.25s;
+            box-shadow: 0 4px 15px rgba(196, 154, 108, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse-bois 2s infinite;
+        }
+        @keyframes pulse-bois {
+            0% { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(196, 154, 108, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(196, 154, 108, 0); }
+        }
+        .top-bar .cta-btn:hover {
+            background: var(--bois-clair);
+            transform: scale(1.03);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+            margin-top: 3rem;
+        }
+        .hero-content .badge-eco {
+            display: inline-block;
+            background: var(--vert-clair);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .hero-content h1 .highlight {
+            color: var(--vert-lumiere);
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .fomo-alert {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            border-left: 4px solid var(--vert-lumiere);
+            padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: #e0f0e0;
+        }
+        .fomo-alert i {
+            color: var(--vert-lumiere);
+        }
+
+        .badges-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .badge-real {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e0f0e0;
+        }
+
+        /* ========== CONFIANCE ========== */
+        .trust-section {
+            background: var(--blanc);
+            padding: 3.5rem 0;
+            border-bottom: 3px solid var(--bois-clair);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .trust-item i {
+            font-size: 2.5rem;
+            color: var(--vert-clair);
+            margin-bottom: 0.75rem;
+            background: var(--beige);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .trust-item h3 {
+            color: var(--vert-fonce);
+        }
+        .trust-item p {
+            color: var(--gris-bois);
+        }
+
+        /* ========== ETAPES AVEC PHOTOS NATURE ========== */
+        .steps {
+            padding: 5rem 0;
+            background: var(--beige);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--vert-fonce);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--gris-bois);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .step-card {
+            background: var(--blanc);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(26, 58, 42, 0.08);
+            transition: 0.3s;
+            border: 1px solid var(--bois-clair);
+        }
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(26, 58, 42, 0.13);
+        }
+        .step-img {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+        .step-card:nth-child(1) .step-img {
+            background-image: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?q=80&w=2070&auto=format&fit=crop');
+        }
+        .step-card:nth-child(2) .step-img {
+            background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop');
+        }
+        .step-card:nth-child(3) .step-img {
+            background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop');
+        }
+        .step-card:nth-child(4) .step-img {
+            background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop');
+        }
+        .step-body {
+            padding: 1.5rem;
+        }
+        .step-body h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--vert-fonce);
+        }
+        .step-body h3 span {
+            background: var(--vert-clair);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+        .step-body p {
+            color: var(--gris-bois);
+        }
+
+        /* ========== VILLES ========== */
+        .cities {
+            padding: 5rem 0;
+            background: var(--blanc);
+        }
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .city-card {
+            background: var(--beige);
+            border-radius: 14px;
+            padding: 1.3rem 1rem;
+            text-align: center;
+            font-weight: 700;
+            border: 2px solid transparent;
+            transition: 0.2s;
+            color: var(--vert-fonce);
+        }
+        .city-card:hover {
+            border-color: var(--vert-clair);
+            background: #eef5e8;
+        }
+        .city-card i {
+            color: var(--vert-clair);
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+        .city-card small {
+            font-weight: 400;
+            color: var(--gris-bois);
+        }
+
+        /* ========== FOMO ÉCO ========== */
+        .urgency-fomo {
+            background: var(--vert-fonce);
+            color: white;
+            padding: 4.5rem 0;
+            text-align: center;
+            background-image: radial-gradient(circle at 20% 30%, #2d5a3f 0%, #1a3a2a 80%);
+        }
+        .fomo-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2.5rem 0;
+        }
+        .fomo-stat .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--vert-lumiere);
+        }
+        .fomo-stat .label {
+            color: var(--bois-clair);
+        }
+        .disclaimer-box {
+            background: rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            max-width: 650px;
+            margin: 2rem auto;
+            font-size: 0.95rem;
+            color: #c8dcc8;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .disclaimer-box i {
+            color: var(--vert-lumiere);
+        }
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .testimonial {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: left;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .testimonial .stars {
+            color: var(--dore);
+            margin-bottom: 0.5rem;
+        }
+        .testimonial p {
+            color: #e0f0e0;
+        }
+        .testimonial .author {
+            font-weight: 700;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--bois-clair);
+        }
+        .testimonial .author img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--vert-lumiere);
+        }
+
+        /* ========== FAQ ========== */
+        .faq {
+            padding: 5rem 0;
+            background: var(--beige);
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .faq-item {
+            background: var(--blanc);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border-left: 5px solid var(--vert-clair);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--vert-fonce);
+        }
+        .faq-item h3 i {
+            color: var(--vert-clair);
+        }
+        .faq-item p {
+            color: var(--gris-bois);
+        }
+
+        /* ========== CTA FINAL ========== */
+        .final-cta {
+            padding: 5rem 0;
+            background: var(--blanc);
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 58, 42, 0.75);
+        }
+        .final-cta .container {
+            position: relative;
+            z-index: 1;
+        }
+        .cta-box {
+            background: var(--beige);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--vert-fonce);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 2px solid var(--bois);
+        }
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .cta-box .big-phone {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--vert-fonce);
+            display: block;
+            margin: 1rem 0;
+        }
+        .cta-box .big-phone i {
+            color: var(--vert-clair);
+        }
+        .footer {
+            background: var(--vert-fonce);
+            color: #b0c8b0;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--bois);
+        }
+        .footer a {
+            color: var(--vert-lumiere);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HERO FORÊT ==================== -->
+    <header class="hero">
+        <div class="top-bar">
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i> Fix<span>74</span>
+            </div>
+            <a href="tel:0658103100" class="cta-btn">
+                <i class="fa-solid fa-phone-volume"></i> 06.58.10.31.00
+            </a>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge-eco">
+                    <i class="fa-solid fa-seedling"></i> Démarche éco-responsable
+                </div>
+                <h1>
+                    Votre artisan de confiance<br>
+                    <span class="highlight">respectueux de votre habitat</span>
+                </h1>
+                <p>
+                    Plomberie, électricité, maçonnerie, meubles sur mesure… 
+                    <strong>Fix74 intervient avec soin</strong> dans toute la Haute-Savoie.
+                </p>
+                
+                <div class="fomo-alert">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span><strong>Fortes demandes en ce moment.</strong> Contactez-nous pour connaître les disponibilités en temps réel.</span>
+                </div>
+                
+                <div class="badges-row">
+                    <div class="badge-real"><i class="fa-solid fa-certificate"></i> Artisan certifié</div>
+                    <div class="badge-real"><i class="fa-solid fa-shield-halved"></i> Assuré RC Pro</div>
+                    <div class="badge-real"><i class="fa-solid fa-file-contract"></i> Devis gratuit</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== CONFIANCE ==================== -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Intervention rapide</h3>
+                    <p>Sous 24 à 48h (selon dispo.)</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-shield"></i>
+                    <h3>Artisan assuré</h3>
+                    <p>RC Pro & décennale</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <h3>Devis gratuit</h3>
+                    <p>Sans engagement</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>100% local</h3>
+                    <p>Haute-Savoie (74)</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-star"></i>
+                    <h3>4,9/5 satisfaction</h3>
+                    <p>+200 clients ravis</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3>8 corps de métier</h3>
+                    <p>Un seul interlocuteur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ÉTAPES ==================== -->
+    <section class="steps">
+        <div class="container">
+            <h2 class="section-title">Comment ça marche ?</h2>
+            <p class="section-subtitle">En 4 étapes simples, vos travaux sont réalisés par un professionnel local.</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-img"></div>
+                    <div class="step-body">
+                        <h3><span>01</span> Appelez-nous</h3>
+                        <p>Contactez Fix74 au <strong>06.58.10.31.00</strong>.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-img"></div>
+                    <div class="step-body">
+                        <h3><span>02</span> Devis gratuit</h3>
+                        <p>Devis clair, détaillé et sans engagement.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-img"></div>
+                    <div class="step-body">
+                        <h3><span>03</span> Intervention</h3>
+                        <p>Notre artisan intervient avec le matériel nécessaire.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-img"></div>
+                    <div class="step-body">
+                        <h3><span>04</span> Travail garanti</h3>
+                        <p>Vérification, nettoyage et garantie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VILLES ==================== -->
+    <section class="cities">
+        <div class="container">
+            <h2 class="section-title">Nous intervenons dans toute la Haute-Savoie</h2>
+            <div class="cities-grid">
+                <div class="city-card"><i class="fa-solid fa-tree"></i> Annecy <small>Chef-lieu</small></div>
+                <div class="city-card"><i class="fa-solid fa-mountain"></i> Bonneville</div>
+                <div class="city-card"><i class="fa-solid fa-leaf"></i> Cluses</div>
+                <div class="city-card"><i class="fa-solid fa-snowflake"></i> Sallanches</div>
+                <div class="city-card"><i class="fa-solid fa-water"></i> Thonon</div>
+                <div class="city-card"><i class="fa-solid fa-spa"></i> Évian</div>
+                <div class="city-card"><i class="fa-solid fa-road"></i> Saint-Julien</div>
+                <div class="city-card"><i class="fa-solid fa-chess-rook"></i> La Roche</div>
+                <div class="city-card"><i class="fa-solid fa-mountain-sun"></i> Chamonix</div>
+                <div class="city-card"><i class="fa-solid fa-skiing"></i> Megève</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOMO HONNÊTE ==================== -->
+    <section class="urgency-fomo">
+        <div class="container">
+            <h2 style="font-size:2rem; margin-bottom:0.5rem;">📅 Disponibilité en temps réel</h2>
+            <p style="color: var(--bois-clair);">Nous vous informons honnêtement de nos créneaux lors de votre appel.</p>
+            
+            <div class="fomo-stats">
+                <div class="fomo-stat">
+                    <div class="number">+200</div>
+                    <div class="label">clients satisfaits</div>
+                </div>
+                <div class="fomo-stat">
+                    <div class="number">24h</div>
+                    <div class="label">délai habituel</div>
+                </div>
+                <div class="fomo-stat">
+                    <div class="number">4,9</div>
+                    <div class="label">⭐ note moyenne</div>
+                </div>
+            </div>
+            
+            <div class="disclaimer-box">
+                <i class="fa-solid fa-circle-info"></i>
+                <strong>Transparence :</strong> Les créneaux varient selon la saison et le type de travaux. 
+                Appelez-nous pour connaître les disponibilités actuelles sans engagement.
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Intervention en urgence pour une fuite d'eau. Arrivé en 2h, travail impeccable."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Client">
+                        Marc L., Annecy
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Devis très clair, ponctuel et travail soigné. Électricité refaite en une journée."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Cliente">
+                        Sophie D., Thonon
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Très réactif. A refait ma terrasse rapidement. Prix très correct."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Client">
+                        Jean-Pierre G., Cluses
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Quels types de travaux réalisez-vous ?</h3>
+                    <p>Plomberie, électricité, maçonnerie, pose de meubles, petite rénovation, et bien d'autres services du quotidien.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Intervenez-vous en urgence ?</h3>
+                    <p>Oui, nous traitons les urgences (fuites, pannes électriques) en priorité. Appelez-nous directement.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Le devis est-il vraiment gratuit ?</h3>
+                    <p>Absolument. Nous établissons un devis clair, détaillé et sans engagement avant toute intervention.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Quelles garanties proposez-vous ?</h3>
+                    <p>Tous nos travaux sont garantis. Nous sommes assurés en RC Pro et décennale.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Jusqu'où vous déplacez-vous ?</h3>
+                    <p>Nous couvrons toute la Haute-Savoie (74) : Annecy, Thonon, Cluses, Chamonix, et toutes les communes environnantes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fa-solid fa-circle-question"></i> Comment prendre rendez-vous ?</h3>
+                    <p>Appelez-nous au <strong>06.58.10.31.00</strong>. Nous conviendrons d'un créneau qui vous convient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA FINAL ==================== -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2><i class="fa-solid fa-leaf"></i> Un projet ? Une question ?</h2>
+                <p style="font-size:1.1rem; margin-bottom:1rem;">Appelez pour connaître nos disponibilités et obtenir un devis gratuit.</p>
+                <a href="tel:0658103100" class="big-phone">
+                    <i class="fa-solid fa-phone"></i> 06.58.10.31.00
+                </a>
+                <p style="margin-top:1rem;"><strong>Horaires :</strong> Lun–Ven 7h30–18h30 | Sam 8h–12h</p>
+                <p style="font-size:0.9rem;">Appel gratuit • Devis sans engagement</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Fix74 — Artisan Multi-Services Éco-responsable en Haute-Savoie (74) | <a href="tel:0658103100">06.58.10.31.00</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
